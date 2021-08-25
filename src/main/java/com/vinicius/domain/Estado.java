@@ -1,4 +1,4 @@
-package com.vinicius.dodmain;
+package com.vinicius.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;

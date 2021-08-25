@@ -1,0 +1,59 @@
+[33mcommit f975775f74380418ce3b37582ccaec870c3ed166[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Vinicius Barros <vbarros.2001@hotmail.com>
+Date:   Mon Aug 23 21:33:01 2021 -0300
+
+    Criando a Classe Cliente e Endereço, e tambem o Enum TipoCliente
+
+[33mcommit 3fbf7e44d1a4da22a15e5ce48fa07c6ca71bf1ec[m
+Author: Vinicius Barros <vbarros.2001@hotmail.com>
+Date:   Thu Aug 19 22:59:02 2021 -0300
+
+    Criando Estade e Cidade
+
+[33mcommit 39bd3992feaef9adef25545e60c881309a23dd3d[m
+Author: Vinicius Barros <vbarros.2001@hotmail.com>
+Date:   Wed Aug 11 23:58:36 2021 -0300
+
+    Ajustes no endpoint /categorias/{id}
+
+[33mcommit 75ba2f308d935d44bb6b64f8803b32a1942d9764[m
+Author: Vinicius Barros <vbarros.2001@hotmail.com>
+Date:   Wed Aug 11 19:10:44 2021 -0300
+
+    Produtos e associacao muitos para muitos
+
+[33mcommit dfef16c5bf297445bbac27f40a18196ffb0bcae9[m
+Author: Vinicius Barros <vbarros.2001@hotmail.com>
+Date:   Tue Aug 10 21:38:02 2021 -0300
+
+    Criando operação de instanciação
+
+[33mcommit b351ae052849a95587db7f62bce693c949c13dae[m
+Author: Vinicius Barros <vbarros.2001@hotmail.com>
+Date:   Thu Aug 5 20:39:22 2021 -0300
+
+    Criando Repository e Service para Categoria
+
+[33mcommit 9bd20472134ceb355d09141f62a8ca45106fa3d6[m
+Author: Vinicius Barros <vbarros.2001@hotmail.com>
+Date:   Tue Aug 3 21:21:41 2021 -0300
+
+     Banco de dados H2 e a criação da base de dados
+
+[33mcommit d55bbd4751079b634d136d26850717a61c17e973[m
+Author: Vinicius Barros <vbarros.2001@hotmail.com>
+Date:   Tue Aug 3 20:26:49 2021 -0300
+
+    Criando Classe Domain
+
+[33mcommit 84103a13f4bc786d443e030e760d2a18f8e89969[m
+Author: Vinicius Barros <vbarros.2001@hotmail.com>
+Date:   Mon Aug 2 21:25:17 2021 -0300
+
+    testando o REST
+
+[33mcommit 4a5f997b894e48ac05fb864505d7d99bee42d435[m
+Author: Vinicius Barros <vbarros.2001@hotmail.com>
+Date:   Mon Aug 2 20:42:53 2021 -0300
+
+    Criação do projeto

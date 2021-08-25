@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vinicius.dodmain.Categoria;
+import com.vinicius.domain.Categoria;
 import com.vinicius.repository.CategoriaRepository;
 import com.vinicius.service.exception.ObjectNotFoundException;
 

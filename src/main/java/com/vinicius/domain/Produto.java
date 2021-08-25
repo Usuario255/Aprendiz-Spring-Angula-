@@ -1,61 +1,71 @@
-package com.vinicius.dodmain;
+package com.vinicius.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+
 
 @Entity
-public class Cidade implements Serializable{
+public class Produto  implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	
-	@ManyToOne
-	@JoinColumn(name="estado_id")
-	private Estado estado;
-	
-	public Cidade() {
-		
-	}
+	private Double preco;
 
-	public Cidade(Integer id, String nome, Estado estado) {
+	@JsonBackReference
+	@ManyToMany
+	@JoinTable(name = "PRODUTO_CATEGORIA",
+		joinColumns = @JoinColumn(name = "produto_id"),
+		inverseJoinColumns = @JoinColumn(name = "categoria_id")
+	)
+	private List<Categoria> categorias = new ArrayList<>();
+	
+	public Produto() {
+	}
+	public Produto(Integer id, String nome, Double preco) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.estado = estado;
+		this.preco = preco;
 	}
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public Estado getEstado() {
-		return estado;
+	public Double getPreco() {
+		return preco;
 	}
-
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setPreco(Double preco) {
+		this.preco = preco;
 	}
-
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -63,7 +73,6 @@ public class Cidade implements Serializable{
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -72,7 +81,7 @@ public class Cidade implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Cidade other = (Cidade) obj;
+		Produto other = (Produto) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -80,7 +89,4 @@ public class Cidade implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
 }

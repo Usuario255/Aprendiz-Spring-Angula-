@@ -7,12 +7,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.vinicius.dodmain.Categoria;
-import com.vinicius.dodmain.Cidade;
-import com.vinicius.dodmain.Estado;
-import com.vinicius.dodmain.Produto;
+import com.vinicius.dodmain.enums.TipoCliente;
+import com.vinicius.domain.Categoria;
+import com.vinicius.domain.Cidade;
+import com.vinicius.domain.Cliente;
+import com.vinicius.domain.Endereco;
+import com.vinicius.domain.Estado;
+import com.vinicius.domain.Produto;
 import com.vinicius.repository.CategoriaRepository;
 import com.vinicius.repository.CidadeRepository;
+import com.vinicius.repository.ClienteRepository;
+import com.vinicius.repository.EnderecoRepository;
 import com.vinicius.repository.EstadoRepository;
 import com.vinicius.repository.ProdutoRepository;
 
@@ -26,6 +31,11 @@ public class CursoMcApplication implements CommandLineRunner{
 	private CidadeRepository cidadeRepository;
 	@Autowired
 	private EstadoRepository estadoRepository;
+	@Autowired
+	private ClienteRepository clienteRepository;
+	@Autowired
+	private EnderecoRepository enderecoRepository;
+	
 	
 	
 	public static void main(String[] args) {
@@ -49,6 +59,12 @@ public class CursoMcApplication implements CommandLineRunner{
 		Cidade c1 = new Cidade(null, "Uberlandia", est1);
 		Cidade c2 = new Cidade(null, "São Paulo", est2);
 		Cidade c3 = new Cidade(null, "Campinas", est2);
+		
+		Cliente cli1 = new Cliente(null, "Maria Silva", "maria@gmail.com", "125654322", TipoCliente.PESSOAFISICA);
+		
+		Endereco e1 = new Endereco(null,"Rua Flore", "32", "Casa", "78990-123", "Jardin São Paulo", cli1, c3);
+		Endereco e2 = new Endereco(null,"Rua Nobel", "900", "Apt", "70990-123", "Jardin Paulista", cli1, c2);
+		
 		// quando temos uma lista devemos  usar essa metodologia para estanciar os objetos da lista usado em reacionamentos muitos pra muitos ou 
 		cat1.getProdutos().addAll(Arrays.asList(p1, p2, p3));
 		cat2.getProdutos().addAll(Arrays.asList(p2));
@@ -60,11 +76,16 @@ public class CursoMcApplication implements CommandLineRunner{
 		est1.getCidades().addAll(Arrays.asList(c1));
 		est2.getCidades().addAll(Arrays.asList(c2,c3));
 		
+		cli1.getTelefones().addAll(Arrays.asList("(81) 9 9889-9988", "(81) 9 3222-3322"));	
+		cli1.getEnderecos().addAll(Arrays.asList(e1,e2));
 		
 		categoriaRepository.saveAll(Arrays.asList(cat1, cat2));
 		produtoRepository.saveAll(Arrays.asList(p1, p2, p3));
 		estadoRepository.saveAll(Arrays.asList(est1, est2));
 		cidadeRepository.saveAll(Arrays.asList(c1, c2, c3));
+		clienteRepository.saveAll(Arrays.asList(cli1));
+		enderecoRepository.saveAll(Arrays.asList(e1,e2));
+		
 	}
 	
 	
